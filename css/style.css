@@ -1,6 +1,6 @@
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Times New Roman", Times, serif;
     color: #071013;
 }
 
@@ -14,11 +14,12 @@ a:hover {
 }
 
 h2 code {
-  font-family: Consolas,"courier new";
-  /* background-color: #f1f1f1; */
-  background-color:  #8C1515;;
-  color: white;
-  padding: 2px;
+    font-family: "Times New Roman", Times, serif;
+    /* font-family: Verdana, Arial, Helvetica, sans-serif; */
+    /* background-color: #f1f1f1; */
+    background-color:  #8C1515;;
+    color: white;
+    padding: 2px;
 }
 
 #TableOfContents ul {
@@ -60,11 +61,13 @@ h2 code {
 }
 
 .secondary_font {
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
 }
 
 .section-subtitle {
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
 }
 
 #profile_picture  {
@@ -86,7 +89,8 @@ h2 code {
 }   
 
 .about #email {
-    font-family: 'Ubuntu Mono', serif; 
+    /* font-family: 'Times New Roman', serif;  */
+    font-family: "Times New Roman", Times, serif;
     margin: auto;
 }
 
@@ -140,24 +144,28 @@ h2 code {
 }
 
 .publication .section-1 .publication-date {
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
 }
 
 .publication .section-1 .publication-name {
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
 }
 
 
 .publication .section-2 {
-    font-family: 'Ubuntu Mono', serif;
-    margin-top: -.1%;
-    margin-bottom: .5%;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
+    /* margin-top: -.1%; */
+    /* margin-bottom: .5%; */
 }
 
 
 .publication .section-3 {
     margin-top: -.5%;
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
     text-decoration: none;
 }
 
@@ -176,7 +184,7 @@ h2 code {
 }
 
 .publication .separator {
-    margin-left: -1%;
+    margin-left: 0%;
 }
 
 .projects .project {
@@ -189,7 +197,8 @@ h2 code {
 }
 
 .projects .project a{
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
     padding: .15%;
 }
 .projects .project .section-2 a:hover {
@@ -236,7 +245,8 @@ h2 code {
 }
 
 .tags_navigation .tag {
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
     padding: .15%;
     background-color: #8C1515;
     color: aliceblue;
@@ -254,7 +264,8 @@ h2 code {
 }
 
 .blog_nav_bar .item {
-    font-family: 'Ubuntu Mono', serif;
+    /* font-family: 'Times New Roman', serif; */
+    font-family: "Times New Roman", Times, serif;
     padding: .15%;
     background-color: #8C1515;
     color: aliceblue;
@@ -263,7 +274,8 @@ h2 code {
 }
 
 .reading_time {
-    font-family: 'Ubuntu Mono', serif;
+    font-family: "Times New Roman", Times, serif;
+    /* font-family: 'Times New Roman', serif; */
     margin-top: -.5%;
     margin-bottom: 1%;
 }
