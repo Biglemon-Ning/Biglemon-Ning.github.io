@@ -283,3 +283,9 @@ h2 code {
 .read_more {
     margin-top: 1%;
 }
+
+.line {
+    border-bottom: 1px solid #CCC;
+    margin-top: 20px; /* 设置上方间距，可以根据需要更改值 */
+    /* padding: 10px;  */
+}
