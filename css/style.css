@@ -292,6 +292,7 @@ h2 code {
 
 .line2 {
     border-bottom: 1px solid #CCC;
-    margin-top: 10px; /* 设置上方间距，可以根据需要更改值 */
+    margin-top: 1px; /* 设置上方间距，可以根据需要更改值 */
+    margin-bottom: 15px; /* 设置上方间距，可以根据需要更改值 */
     /* padding: 10px;  */
 }
