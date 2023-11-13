@@ -7,9 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2020 17:51:47 +0330</lastBuildDate>
-    
-	<atom:link href="https://biglemon-ning.github.io/awards/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://biglemon-ning.github.io/awards/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
