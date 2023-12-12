@@ -285,13 +285,13 @@ h2 code {
 }
 
 .line {
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #a63131;
     margin-top: 20px; /* 设置上方间距，可以根据需要更改值 */
     /* padding: 10px;  */
 }
 
 .line2 {
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #a63131;
     margin-top: 1px; /* 设置上方间距，可以根据需要更改值 */
     margin-bottom: 15px; /* 设置上方间距，可以根据需要更改值 */
     /* padding: 10px;  */
