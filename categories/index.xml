@@ -6,6 +6,9 @@
     <description>Recent content in Categories on Liang-bo Ning</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://biglemon-ning.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://biglemon-ning.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>
