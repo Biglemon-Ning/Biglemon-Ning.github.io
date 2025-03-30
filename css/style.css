@@ -140,7 +140,9 @@ h2 code {
 }
 
 .publications .publication {
-    margin-top: 1.5%;
+    /* margin-top: 1.5%; */
+    margin-bottom: 0.3rem;  /* 调整下边距（默认可能是 1rem 或更大） */
+    /* padding: 0.2rem 0;  */
 }
 
 .publication .section-1 .publication-date {
@@ -151,6 +153,7 @@ h2 code {
 .publication .section-1 .publication-name {
     /* font-family: 'Times New Roman', serif; */
     font-family: "Times New Roman", Times, serif;
+    font-style: italic;
 }
 
 
