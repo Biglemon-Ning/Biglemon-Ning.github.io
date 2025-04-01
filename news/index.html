@@ -16,7 +16,7 @@
         
         let camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000)
         
-        camera.position.set(0, 5, 35)
+        camera.position.set(0, 5, 45)
 
         
         let renderer = new THREE.WebGLRenderer()
@@ -133,7 +133,8 @@
                         `#include <color_vertex>
                     float d = length(abs(position)/vec3(40.,10.,40));
                     d=clamp(d,0.,1.);
-                    vColor = mix(vec3(120.,175.,239.),vec3(210, 242, 250),d)/255.;`
+                    vColor = mix(vec3(116.,167.,254.),vec3(210, 242, 250),d)/255.;`
+                    
                     )
                     
                     
