@@ -40,20 +40,23 @@ function initSidebarDropdown() {
         
         if (!dropdownMenu || !dropdownToggle) return;
         
-        // Toggle dropdown on click
+        // Check if we're on a Research subpage
+        const currentPath = window.location.pathname;
+        const isOnResearchSubpage = currentPath.includes('publications.html') || 
+                                   currentPath.includes('tutorials.html') || 
+                                   currentPath.includes('services.html');
+        
+        // Only keep dropdown open if we're on a Research subpage
+        if (isOnResearchSubpage) {
+            dropdownMenu.classList.add('show');
+        } else {
+            dropdownMenu.classList.remove('show');
+        }
+        
+        // Add click toggle functionality for non-subpage navigation
         dropdownToggle.addEventListener('click', function(e) {
             e.preventDefault();
             const isOpen = dropdownMenu.classList.contains('show');
-            
-            // Close all other dropdowns
-            dropdowns.forEach(d => {
-                if (d !== dropdown) {
-                    const dMenu = d.querySelector('.sidebar-dropdown');
-                    if (dMenu) {
-                        dMenu.classList.remove('show');
-                    }
-                }
-            });
             
             // Toggle current dropdown
             if (isOpen) {
@@ -66,29 +69,39 @@ function initSidebarDropdown() {
         // Desktop hover behavior (optional)
         if (window.innerWidth > 992) {
             dropdown.addEventListener('mouseenter', function() {
-                const sidebar = document.getElementById('sidebar');
-                if (sidebar && !sidebar.classList.contains('collapsed')) {
+                // Only show on hover if not on a Research subpage
+                if (!isOnResearchSubpage) {
                     dropdownMenu.classList.add('show');
                 }
             });
             
             dropdown.addEventListener('mouseleave', function() {
-                dropdownMenu.classList.remove('show');
-            });
-        }
-    });
-    
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.sidebar-item.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                const dropdownMenu = dropdown.querySelector('.sidebar-dropdown');
-                if (dropdownMenu) {
+                // Only hide on mouse leave if not on a Research subpage
+                if (!isOnResearchSubpage) {
                     dropdownMenu.classList.remove('show');
                 }
             });
         }
     });
+    
+    // Close dropdowns when clicking outside (only if not on Research subpage)
+    const currentPath = window.location.pathname;
+    const isOnResearchSubpage = currentPath.includes('publications.html') || 
+                               currentPath.includes('tutorials.html') || 
+                               currentPath.includes('services.html');
+    
+    if (!isOnResearchSubpage) {
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.sidebar-item.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    const dropdownMenu = dropdown.querySelector('.sidebar-dropdown');
+                    if (dropdownMenu) {
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+            }
+        });
+    }
 }
 
 // Navigation link active state management
@@ -104,6 +117,44 @@ function initNavigationActiveStates() {
         dropdownItems.forEach(item => {
             item.classList.remove('active');
         });
+    }
+    
+    // Function to update active state based on scroll position
+    function updateActiveStateOnScroll() {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Get all sections
+        const homeSection = document.getElementById('home');
+        const newsSection = document.getElementById('news');
+        const contactSection = document.getElementById('contact');
+        
+        // Remove all active states first
+        removeAllActiveStates();
+        
+        // Check if we're near the bottom of the page (Contact should be active)
+        if (scrollPosition + windowHeight >= documentHeight - 100) {
+            // Near bottom of page, activate Contact
+            const contactLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Contact'));
+            if (contactLink) contactLink.classList.add('active');
+        }
+        // Check if we're in the Contact section (but not too close to News)
+        else if (contactSection && scrollPosition >= contactSection.offsetTop + 100) {
+            const contactLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Contact'));
+            if (contactLink) contactLink.classList.add('active');
+        }
+        // Check if we're in the News section (with buffer zone to prevent jumping)
+        else if (newsSection && scrollPosition >= newsSection.offsetTop - 50 && 
+                 scrollPosition < contactSection.offsetTop + 50) {
+            const newsLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('News'));
+            if (newsLink) newsLink.classList.add('active');
+        }
+        // Check if we're in the Home section
+        else if (homeSection && scrollPosition < newsSection.offsetTop - 100) {
+            const homeLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Home'));
+            if (homeLink) homeLink.classList.add('active');
+        }
     }
     
     // Add click event listeners to sidebar links
@@ -141,6 +192,21 @@ function initNavigationActiveStates() {
             this.classList.add('active');
         });
     });
+    
+    // Add scroll event listener for automatic active state updates
+    let scrollTimeout;
+    
+    // Only enable scroll tracking on the main page (index.html)
+    if (window.location.pathname.endsWith('index.html') || 
+        window.location.pathname.endsWith('/') || 
+        window.location.pathname === '/') {
+        window.addEventListener('scroll', function() {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(updateActiveStateOnScroll, 100);
+        });
+    }
     
     // Set initial active state based on current page
     setInitialActiveState();
