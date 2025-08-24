@@ -2,99 +2,194 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all functionality
-    initNavbar();
+    initSidebar();
     initSmoothScrolling();
     initScrollAnimations();
     initUniverseBackground();
     
 });
 
-// Navigation bar functionality
-function initNavbar() {
-    const navbar = document.querySelector('.navbar');
+// Sidebar functionality
+function initSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
     
-    // Add scroll effect to navbar
+    // Add scroll effect to sidebar
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+        if (window.scrollY > 100) {
+            sidebar.classList.add('scrolled');
         } else {
-            navbar.classList.remove('scrolled');
+            sidebar.classList.remove('scrolled');
         }
-    });
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (navbarCollapse.classList.contains('show')) {
-                navbarCollapse.classList.remove('show');
-            }
-        });
     });
     
     // Enhanced dropdown menu functionality
-    initDropdownMenu();
+    initSidebarDropdown();
+    
+    // Initialize navigation link active states
+    initNavigationActiveStates();
 }
 
-// Dropdown menu functionality
-function initDropdownMenu() {
-    const dropdowns = document.querySelectorAll('.dropdown');
+// Sidebar dropdown menu functionality
+function initSidebarDropdown() {
+    const dropdowns = document.querySelectorAll('.sidebar-item.dropdown');
     
     dropdowns.forEach(dropdown => {
-        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        const dropdownMenu = dropdown.querySelector('.sidebar-dropdown');
         const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
         
-        // Desktop hover behavior
-        if (window.innerWidth > 992) {
-            // Show dropdown on hover
-            dropdown.addEventListener('mouseenter', function() {
-                dropdownMenu.style.display = 'block';
-                dropdownMenu.style.opacity = '1';
-                dropdownMenu.style.transform = 'translateY(0)';
+        if (!dropdownMenu || !dropdownToggle) return;
+        
+        // Toggle dropdown on click
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isOpen = dropdownMenu.classList.contains('show');
+            
+            // Close all other dropdowns
+            dropdowns.forEach(d => {
+                if (d !== dropdown) {
+                    const dMenu = d.querySelector('.sidebar-dropdown');
+                    if (dMenu) {
+                        dMenu.classList.remove('show');
+                    }
+                }
             });
             
-            // Hide dropdown when mouse leaves
+            // Toggle current dropdown
+            if (isOpen) {
+                dropdownMenu.classList.remove('show');
+            } else {
+                dropdownMenu.classList.add('show');
+            }
+        });
+        
+        // Desktop hover behavior (optional)
+        if (window.innerWidth > 992) {
+            dropdown.addEventListener('mouseenter', function() {
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar && !sidebar.classList.contains('collapsed')) {
+                    dropdownMenu.classList.add('show');
+                }
+            });
+            
             dropdown.addEventListener('mouseleave', function() {
-                dropdownMenu.style.display = 'none';
-                dropdownMenu.style.opacity = '0';
-                dropdownMenu.style.transform = 'translateY(-10px)';
+                dropdownMenu.classList.remove('show');
             });
         }
-        
-        // Mobile click behavior
-        dropdownToggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                const isOpen = dropdownMenu.classList.contains('show');
-                
-                // Close all other dropdowns
-                dropdowns.forEach(d => {
-                    if (d !== dropdown) {
-                        d.querySelector('.dropdown-menu').classList.remove('show');
-                    }
-                });
-                
-                // Toggle current dropdown
-                if (isOpen) {
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.sidebar-item.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                const dropdownMenu = dropdown.querySelector('.sidebar-dropdown');
+                if (dropdownMenu) {
                     dropdownMenu.classList.remove('show');
-                } else {
-                    dropdownMenu.classList.add('show');
+                }
+            });
+        }
+    });
+}
+
+// Navigation link active state management
+function initNavigationActiveStates() {
+    const sidebarLinks = document.querySelectorAll('.sidebar-link:not(.dropdown-toggle)');
+    const dropdownItems = document.querySelectorAll('.sidebar-dropdown-item');
+    
+    // Function to remove active class from all links
+    function removeAllActiveStates() {
+        sidebarLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+        dropdownItems.forEach(item => {
+            item.classList.remove('active');
+        });
+    }
+    
+    // Add click event listeners to sidebar links
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Remove active state from all links
+            removeAllActiveStates();
+            
+            // Add active state to clicked link
+            this.classList.add('active');
+            
+            // If this is a Research link, also activate the dropdown
+            if (this.textContent.trim() === 'Research') {
+                const dropdown = this.closest('.sidebar-item').querySelector('.sidebar-dropdown');
+                if (dropdown) {
+                    dropdown.classList.add('show');
                 }
             }
         });
     });
     
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-                dropdownMenu.classList.remove('show');
-            });
-        }
+    // Add click event listeners to dropdown items
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Remove active state from all links and items
+            removeAllActiveStates();
+            
+            // Add active state to parent Research link
+            const researchLink = this.closest('.sidebar-item').querySelector('.sidebar-link');
+            if (researchLink) {
+                researchLink.classList.add('active');
+            }
+            
+            // Add active state to clicked dropdown item
+            this.classList.add('active');
+        });
     });
+    
+    // Set initial active state based on current page
+    setInitialActiveState();
+}
+
+// Set initial active state based on current page
+function setInitialActiveState() {
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+    
+    // Remove all active states first
+    const sidebarLinks = document.querySelectorAll('.sidebar-link:not(.dropdown-toggle)');
+    const dropdownItems = document.querySelectorAll('.sidebar-dropdown-item');
+    
+    sidebarLinks.forEach(link => link.classList.remove('active'));
+    dropdownItems.forEach(item => item.classList.remove('active'));
+    
+    // Set active state based on current page
+    if (currentPath.includes('publications.html')) {
+        const researchLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Research'));
+        const publicationsItem = document.querySelector('.sidebar-dropdown-item[href="publications.html"]');
+        if (researchLink) researchLink.classList.add('active');
+        if (publicationsItem) publicationsItem.classList.add('active');
+    } else if (currentPath.includes('awards.html')) {
+        const awardsLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Awards'));
+        if (awardsLink) awardsLink.classList.add('active');
+    } else if (currentPath.includes('tutorials.html')) {
+        const researchLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Research'));
+        const tutorialsItem = document.querySelector('.sidebar-dropdown-item[href="tutorials.html"]');
+        if (researchLink) researchLink.classList.add('active');
+        if (tutorialsItem) tutorialsItem.classList.add('active');
+    } else if (currentPath.includes('services.html')) {
+        const researchLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Research'));
+        const servicesItem = document.querySelector('.sidebar-dropdown-item[href="services.html"]');
+        if (researchLink) researchLink.classList.add('active');
+        if (servicesItem) servicesItem.classList.add('active');
+    } else if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
+        // Home page
+        if (currentHash === '#home' || !currentHash) {
+            const homeLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Home'));
+            if (homeLink) homeLink.classList.add('active');
+        } else if (currentHash === '#news') {
+            const newsLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('News'));
+            if (newsLink) newsLink.classList.add('active');
+        } else if (currentHash === '#contact') {
+            const contactLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('Contact'));
+            if (contactLink) contactLink.classList.add('active');
+        }
+    }
 }
 
 // Smooth scrolling for anchor links
@@ -109,7 +204,7 @@ function initSmoothScrolling() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = targetSection.offsetTop - 20; // Account for sidebar
                 
                 window.scrollTo({
                     top: offsetTop,
@@ -229,6 +324,38 @@ function addDynamicCSS() {
         
         .shooting-star {
             z-index: 2;
+        }
+        
+        .sidebar-collapse-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-collapse-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .sidebar.scrolled {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 992px) {
+            .sidebar-collapse-btn {
+                display: none;
+            }
         }
     `;
     document.head.appendChild(style);

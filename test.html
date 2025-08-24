@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sidebar Test - Liangbo Ning</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a class="sidebar-brand" href="#home">Liangbo Ning</a>
+        </div>
+        <div class="sidebar-content">
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-item dropdown">
+                    <a class="sidebar-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-flask"></i>
+                        <span>Research</span>
+                    </a>
+                    <ul class="sidebar-dropdown">
+                        <li><a class="sidebar-dropdown-item" href="publications.html">Publications</a></li>
+                        <li><a class="sidebar-dropdown-item" href="tutorials.html">Tutorials</a></li>
+                        <li><a class="sidebar-dropdown-item" href="services.html">Services</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="awards.html">
+                        <i class="fas fa-trophy"></i>
+                        <span>Awards</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#news">
+                        <i class="fas fa-newspaper"></i>
+                        <span>News</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="social-links-sidebar">
+                <a href="https://scholar.google.com/citations?user=z2PpO8MAAAAJ&hl=zh-CN&oi=ao" target="_blank" class="social-link">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://github.com/Biglemon-Ning" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="CV(25.8.24).pdf" target="_blank" class="social-link">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Toggle -->
+    <div class="mobile-nav-toggle" id="mobileNavToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="mt-5">Sidebar Test Page</h1>
+                    <p>This page tests the sidebar functionality.</p>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <h3>Features to Test:</h3>
+                            <ul>
+                                <li>Sidebar navigation</li>
+                                <li>Dropdown menus</li>
+                                <li>Mobile responsiveness</li>
+                                <li>Sidebar collapse</li>
+                                <li>Smooth scrolling</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Instructions:</h3>
+                            <ul>
+                                <li>Click on Research to see dropdown</li>
+                                <li>Use collapse button to minimize sidebar</li>
+                                <li>Resize browser to test mobile view</li>
+                                <li>Scroll to see scroll effects</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Add some content to test scrolling -->
+                    <div class="mt-5">
+                        <h2>Scroll Test Content</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h2>More Content</h2>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                        <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
