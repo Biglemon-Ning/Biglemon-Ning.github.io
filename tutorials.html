@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutorials - Liang-bo Ning</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .tutorial-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .tutorial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tutorial-title {
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+        
+        .tutorial-authors {
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .tutorial-venue {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tutorial-arxiv {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .tutorial-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tutorial-links .btn {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+        }
+        
+        .tutorial-stats {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .filter-buttons {
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            margin: 0.25rem;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .tutorial-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .type-kdd {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .type-icde {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .type-ijcai {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Liang-bo Ning</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="awards.html">Awards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Universe Animation -->
+    <div id="universe-background"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold mb-3">Tutorials</h1>
+                        <p class="lead mb-4">Academic tutorials and presentations on cutting-edge AI research</p>
+                        <div class="tutorial-stats">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="4">0</h3>
+                                        <p>Total Tutorials</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="2">0</h3>
+                                        <p>KDD</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="1">0</h3>
+                                        <p>ICDE</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="1">0</h3>
+                                        <p>IJCAI</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="filter-buttons text-center">
+                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="kdd">KDD</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="icde">ICDE</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="ijcai">IJCAI</button>
+                </div>
+
+                <!-- Tutorials List -->
+                <div class="tutorials-container">
+                    <!-- Tutorial 1: WebAgents -->
+                    <div class="tutorial-item" data-type="kdd">
+                        <span class="tutorial-type type-kdd">KDD 2025</span>
+                        <h3 class="tutorial-title">WebAgents: Towards Next-Generation AI Agents for Web Automation with Large Foundation Models</h3>
+                        <p class="tutorial-authors">
+                            Yujuan Ding, <strong>Liangbo Ning</strong>, Ziran Liang, Zhuohang Jiang, Haohao Qu, <strong>Wenqi Fan</strong>, Qing Li, Hui Liu, Xiaoyong Wei, Philip S. Yu
+                        </p>
+                        <p class="tutorial-venue">The 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining (<strong>KDD 2025</strong>), 2025.</p>
+                        <p class="tutorial-arxiv">arXiv:2503.23350, 2025.</p>
+                        <div class="tutorial-links">
+                            <a href="https://arxiv.org/abs/2503.23350" target="_blank" class="btn btn-sm btn-outline-primary me-2">Survey</a>
+                            <a href="https://biglemon-ning.github.io/WebAgents/" target="_blank" class="btn btn-sm btn-outline-primary me-2">Website</a>
+                            <a href="https://biglemon-ning.github.io/WebAgents/2025-KDD-WebAgent-tutorial-part1.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-Part-1</a>
+                            <a href="https://biglemon-ning.github.io/WebAgents/2025-KDD-WebAgent-tutorial-part2.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-Part-2</a>
+                        </div>
+                    </div>
+
+                    <!-- Tutorial 2: RAG and Data Management -->
+                    <div class="tutorial-item" data-type="icde">
+                        <span class="tutorial-type type-icde">ICDE 2025</span>
+                        <h3 class="tutorial-title">Towards Retrieval-Augmented Large Language Models: Data Management and System Design</h3>
+                        <p class="tutorial-authors">
+                            Pangjing Wu, Yujuan Ding, <strong>Liangbo Ning</strong>, Shijie Wang, <strong>Wenqi Fan</strong>, Qing Li
+                        </p>
+                        <p class="tutorial-venue">IEEE International Conference on Data Engineering (<strong>ICDE 2025</strong>), 2025.</p>
+                        <p class="tutorial-arxiv">arXiv:2405.06211, 2024.</p>
+                        <div class="tutorial-links">
+                            <a href="https://arxiv.org/abs/2405.06211" target="_blank" class="btn btn-sm btn-outline-primary me-2">Survey</a>
+                            <a href="https://advanced-recommender-systems.github.io/Retrieval-Augmented-LLMs/" target="_blank" class="btn btn-sm btn-outline-primary me-2">Website</a>
+                            <a href="https://advanced-recommender-systems.github.io/Retrieval-Augmented-LLMs/ICDE-2025-Tutorial-RAG-and-DM-part1.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-Part-1</a>
+                            <a href="https://advanced-recommender-systems.github.io/Retrieval-Augmented-LLMs/ICDE-2025-Tutorial-RAG-and-DM-part2.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-Part-2</a>
+                        </div>
+                    </div>
+
+                    <!-- Tutorial 3: RAG Meets LLMs -->
+                    <div class="tutorial-item" data-type="kdd">
+                        <span class="tutorial-type type-kdd">KDD 2024</span>
+                        <h3 class="tutorial-title">RAG Meets LLMs: Towards Retrieval-Augmented Large Language Models</h3>
+                        <p class="tutorial-authors">
+                            Yujuan Ding, <strong>Wenqi Fan</strong>, <strong>Liangbo Ning</strong>, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, and Qing Li
+                        </p>
+                        <p class="tutorial-venue">The 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (<strong>KDD 2024</strong>), 2024.</p>
+                        <p class="tutorial-arxiv">arXiv:2405.06211, 2024.</p>
+                        <div class="tutorial-links">
+                            <a href="https://arxiv.org/abs/2405.06211" target="_blank" class="btn btn-sm btn-outline-primary me-2">Survey</a>
+                            <a href="https://advanced-recommender-systems.github.io/RAG-Meets-LLMs/" target="_blank" class="btn btn-sm btn-outline-primary me-2">Website</a>
+                            <a href="https://advanced-recommender-systems.github.io/RAG-Meets-LLMs/2024-KDD-RAG-Meets-LLM-tutorial-Part1.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-Part-1</a>
+                            <a href="https://advanced-recommender-systems.github.io/RAG-Meets-LLMs/2024-KDD-RAG-Meets-LLM-tutorial-Part2.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-Part-2</a>
+                        </div>
+                    </div>
+
+                    <!-- Tutorial 4: LLMs4Rec -->
+                    <div class="tutorial-item" data-type="ijcai">
+                        <span class="tutorial-type type-ijcai">IJCAI 2024</span>
+                        <h3 class="tutorial-title">Recommender Systems in the Era of Large Language Models (LLMs)</h3>
+                        <p class="tutorial-authors">
+                            Yujuan Ding, Shijie Wang, <strong>Liangbo Ning</strong>, Qiaoyu Tan, <strong>Wenqi Fan</strong>, and Qing Li
+                        </p>
+                        <p class="tutorial-venue">International Joint Conference on Artificial Intelligence (<strong>IJCAI</strong>, Tutorial), 2024.</p>
+                        <div class="tutorial-links">
+                            <a href="https://advanced-recommender-systems.github.io/LLMs4Rec-IJCAI/" target="_blank" class="btn btn-sm btn-outline-primary me-2">Website</a>
+                            <a href="https://arxiv.org/abs/2307.02046" target="_blank" class="btn btn-sm btn-outline-primary me-2">Survey</a>
+                            <a href="https://advanced-recommender-systems.github.io/LLMs4Rec-IJCAI/IJCAI_LLM4Rec_Tutorial_1.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-LLM4Rec-Part-1</a>
+                            <a href="https://advanced-recommender-systems.github.io/LLMs4Rec-IJCAI/IJCAI_LLM4Rec_Tutorial_2.pdf" target="_blank" class="btn btn-sm btn-outline-primary me-2">Slides-LLM4Rec-Part-2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Liang-bo Ning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Tutorial filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const tutorials = document.querySelectorAll('.tutorial-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    tutorials.forEach(tutorial => {
+                        if (filter === 'all' || tutorial.getAttribute('data-type') === filter) {
+                            tutorial.style.display = 'block';
+                            tutorial.style.animation = 'fadeIn 0.5s ease-in';
+                        } else {
+                            tutorial.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Add fadeIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Awards - Liang-bo Ning</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .award-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .award-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 123, 255, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .award-item:hover::before {
+            opacity: 1;
+        }
+        
+        .award-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .award-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .award-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .award-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .award-title {
+            color: var(--dark);
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.3rem;
+            flex: 1;
+            padding-right: 80px;
+        }
+        
+        .award-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .award-organization {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .award-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin: 0;
+            white-space: nowrap;
+        }
+        
+        .award-description {
+            color: var(--secondary-color);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .category-academic {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .category-scholarship {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .category-competition {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .category-honor {
+            background-color: #e8f5e8;
+            color: #388e3c;
+        }
+        
+        .award-stats {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .award-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .award-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+        
+        .award-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .award-year::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        
+        .filter-buttons {
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            margin: 0.25rem;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">Liang-bo Ning</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="awards.html">Awards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutorials.html">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Universe Animation -->
+    <div id="universe-background"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold mb-3">Awards & Honors</h1>
+                        <p class="lead mb-4">Recognition for academic excellence and research contributions</p>
+                        <div class="award-stats">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="8">0</h3>
+                                        <p>Total Awards</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="3">0</h3>
+                                        <p>Scholarships</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="3">0</h3>
+                                        <p>Competitions</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="2">0</h3>
+                                        <p>Honors</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="filter-buttons text-center">
+                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="academic">Academic</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="scholarship">Scholarship</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="competition">Competition</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="honor">Honor</button>
+                </div>
+
+                <!-- Awards Timeline -->
+                <div class="award-timeline">
+                    <!-- 2023 Awards -->
+                    <div class="award-year">2023</div>
+                    
+                    <div class="award-item" data-category="academic">
+                        <div class="award-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-academic">Academic Excellence</span>
+                            <h3 class="award-title">Excellent Master's Thesis</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2023</p>
+                        </div>
+                        <p class="award-description">Recognized for outstanding research contribution and thesis quality in Control Science and Engineering.</p>
+                    </div>
+
+                    <div class="award-item" data-category="honor">
+                        <div class="award-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-honor">Graduation Honor</span>
+                            <h3 class="award-title">Outstanding Graduates</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">March 2023</p>
+                        </div>
+                        <p class="award-description">Awarded to top-performing students for exceptional academic achievements and research contributions.</p>
+                    </div>
+
+                    <!-- 2022 Awards -->
+                    <div class="award-year">2022</div>
+                    
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">National Recognition</span>
+                            <h3 class="award-title">The National Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Ministry of Education, China</p>
+                            <p class="award-date">October 2022</p>
+                        </div>
+                        <p class="award-description">The highest academic honor for graduate students in China, recognizing exceptional academic performance and research achievements.</p>
+                    </div>
+
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">Academic Excellence</span>
+                            <h3 class="award-title">The First Prize Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2022</p>
+                        </div>
+                        <p class="award-description">Awarded for outstanding academic performance and research contributions during the 2021-2022 academic year.</p>
+                    </div>
+
+                    <!-- 2021 Awards -->
+                    <div class="award-year">2021</div>
+                    
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">Academic Excellence</span>
+                            <h3 class="award-title">The Second Prize Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2021</p>
+                        </div>
+                        <p class="award-description">Recognized for strong academic performance and research potential in the field of Control Science and Engineering.</p>
+                    </div>
+
+                    <!-- 2020 Awards -->
+                    <div class="award-year">2020</div>
+                    
+                    <div class="award-item" data-category="competition">
+                        <div class="award-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-competition">National Competition</span>
+                            <h3 class="award-title">The First Prize of the 15th National University Students Intelligent Car Race</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Intelligent Car Race Organization Committee</p>
+                            <p class="award-date">August 2020</p>
+                        </div>
+                        <p class="award-description">National champion in intelligent vehicle design and control competition, demonstrating excellence in robotics and automation.</p>
+                    </div>
+
+                    <!-- 2019 Awards -->
+                    <div class="award-year">2019</div>
+                    
+                    <div class="award-item" data-category="competition">
+                        <div class="award-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-competition">National Competition</span>
+                            <h3 class="award-title">The First Prize of the 14th National University Students Intelligent Car Race</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Intelligent Car Race Organization Committee</p>
+                            <p class="award-date">August 2019</p>
+                        </div>
+                        <p class="award-description">National champion in intelligent vehicle competition, showcasing advanced control systems and robotics expertise.</p>
+                    </div>
+
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">Academic Excellence</span>
+                            <h3 class="award-title">The First Prize Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2019</p>
+                        </div>
+                        <p class="award-description">Awarded for exceptional academic performance and research achievements in Automation Engineering.</p>
+                    </div>
+
+                    <!-- 2018 Awards -->
+                    <div class="award-year">2018</div>
+                    
+                    <div class="award-item" data-category="competition">
+                        <div class="award-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-competition">National Competition</span>
+                            <h3 class="award-title">The Second Prize of the 13th National University Students Intelligent Car Race</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Intelligent Car Race Organization Committee</p>
+                            <p class="award-date">August 2018</p>
+                        </div>
+                        <p class="award-description">National runner-up in intelligent vehicle competition, demonstrating strong foundation in control systems and robotics.</p>
+                    </div>
+
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">Academic Excellence</span>
+                            <h3 class="award-title">The First Prize Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2018</p>
+                        </div>
+                        <p class="award-description">Recognized for outstanding academic performance and research potential in Automation Engineering.</p>
+                    </div>
+
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">Industry Recognition</span>
+                            <h3 class="award-title">The Endress+Hauser Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2018</p>
+                        </div>
+                        <p class="award-description">Industry-sponsored scholarship recognizing academic excellence and potential in automation and control engineering.</p>
+                    </div>
+
+                    <!-- 2017 Awards -->
+                    <div class="award-year">2017</div>
+                    
+                    <div class="award-item" data-category="scholarship">
+                        <div class="award-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="award-header">
+                            <span class="award-category category-scholarship">Academic Excellence</span>
+                            <h3 class="award-title">The Second Prize Scholarship</h3>
+                        </div>
+                        <div class="award-footer">
+                            <p class="award-organization">Northwestern Polytechnical University</p>
+                            <p class="award-date">October 2017</p>
+                        </div>
+                        <p class="award-description">Awarded for strong academic performance and dedication to studies in Automation Engineering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Liang-bo Ning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Award filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const awards = document.querySelectorAll('.award-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    awards.forEach(award => {
+                        if (filter === 'all' || award.getAttribute('data-category') === filter) {
+                            award.style.display = 'block';
+                            award.style.animation = 'fadeIn 0.5s ease-in';
+                        } else {
+                            award.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Add fadeIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
