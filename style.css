@@ -55,6 +55,81 @@ body {
     color: var(--primary-color) !important;
 }
 
+/* Dropdown Menu Hover Effect */
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    color: var(--dark);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.dropdown-item.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.dropdown-toggle::after {
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Mobile dropdown support */
+@media (max-width: 992px) {
+    .dropdown-menu.show {
+        display: block !important;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background-color: var(--light-bg);
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        border-radius: 0;
+    }
+    
+    .dropdown-item:hover {
+        transform: none;
+    }
+}
+
 /* Universe Background */
 #universe-background {
     position: fixed;
@@ -266,16 +341,29 @@ body {
 /* News Section */
 .news-timeline {
     position: relative;
+    padding-left: 2rem;
+}
+
+.news-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
+    border-radius: 2px;
 }
 
 .news-item {
     background-color: var(--white);
     border-radius: 15px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
     box-shadow: var(--shadow);
     border-left: 4px solid var(--primary-color);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .news-item:hover {
@@ -287,30 +375,52 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .news-date {
     display: inline-block;
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
 }
 
+.news-year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.news-year::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
 .news-title {
     color: var(--dark);
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
 .news-content p {
     color: var(--dark);
-    line-height: 1.7;
+    line-height: 1.5;
     margin: 0;
 }
 

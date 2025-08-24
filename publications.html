@@ -18,11 +18,12 @@
         .publication-item {
             background: var(--white);
             border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
             box-shadow: var(--shadow);
             border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .publication-item:hover {
@@ -34,7 +35,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.3rem;
         }
         
         .publication-type {
@@ -50,21 +51,22 @@
             color: var(--dark);
             font-weight: 600;
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             flex: 1;
         }
         
         .publication-authors {
             color: var(--dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.3rem;
             font-style: italic;
+            line-height: 1.4;
         }
         
         .publication-footer {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 0.3rem;
             flex-wrap: wrap;
         }
         
@@ -132,6 +134,44 @@
             background-color: #e8f5e8;
             color: #388e3c;
         }
+        
+        .publications-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .publications-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+        
+        .publication-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .publication-year::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
     </style>
 </head>
 
@@ -146,22 +186,26 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="index.html#home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="publications.html">Publications</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="awards.html">Awards</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tutorials.html">Tutorials</a>
+                        <a class="nav-link" href="index.html#news">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="index.html#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -225,7 +269,10 @@
                 </div>
 
                 <!-- Publications List -->
-                <div class="publications-container">
+                <div class="publications-timeline">
+                    <!-- 2025 Publications -->
+                    <div class="publication-year">2025</div>
+                    
                     <!-- Publication 1 -->
                     <div class="publication-item" data-type="conference">
                         <div class="publication-header">
@@ -238,7 +285,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25)</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2503.23350" target="_blank" class="badge bg-primary">PDF</a>
                                 <!-- <a href="#" class="badge bg-secondary">Code</a> -->
@@ -257,7 +303,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2504.11182" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -275,7 +320,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">IEEE Transactions on Neural Networks and Learning Systems</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://ieeexplore.ieee.org/document/10988896" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -293,7 +337,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2504.02458" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -311,13 +354,15 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2503.09382" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 2024 Publications -->
+                    <div class="publication-year">2024</div>
+                    
                     <!-- Publication 6 -->
                     <div class="publication-item" data-type="conference">
                         <div class="publication-header">
@@ -329,7 +374,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '24)</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://dl.acm.org/doi/pdf/10.1145/3637528.3671837" target="_blank" class="badge bg-primary">PDF</a>
                                 <a href="https://github.com/Biglemon-Ning/CheatAgent" target="_blank" class="badge bg-success">Code</a>
@@ -348,7 +392,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '24)</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://dl.acm.org/doi/pdf/10.1145/3637528.3671470" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -366,7 +409,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">The Web Conference (WWW '24)</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://dl.acm.org/doi/abs/10.1145/3589335.3651525" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -391,6 +433,9 @@
                         </div>
                     </div> -->
 
+                    <!-- 2023 Publications -->
+                    <div class="publication-year">2023</div>
+                    
                     <!-- Publication 10 -->
                     <div class="publication-item" data-type="journal">
                         <div class="publication-header">
@@ -402,7 +447,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">Information Fusion</p>
-                            <p class="publication-year">2023</p>
                             <div class="publication-links">
                                 <a href="https://www.sciencedirect.com/science/article/abs/pii/S1566253523001033" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -420,7 +464,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">IEEE Transactions on Neural Networks and Learning Systems</p>
-                            <p class="publication-year">2023</p>
                             <div class="publication-links">
                                 <a href="https://ieeexplore.ieee.org/abstract/document/10314535" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -438,7 +481,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">International Conference on Belief Functions</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://link.springer.com/chapter/10.1007/978-3-031-67977-3_3" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -456,7 +498,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2408.01129" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -474,7 +515,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2408.01715" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -492,7 +532,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2024</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2409.01192" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -528,7 +567,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">IEEE Transactions on Fuzzy Systems</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://ieeexplore.ieee.org/abstract/document/11023236" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -546,7 +584,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">arXiv preprint</p>
-                            <p class="publication-year">2025</p>
                             <div class="publication-links">
                                 <a href="https://arxiv.org/abs/2508.05318" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
@@ -564,13 +601,15 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">IEEE Transactions on Geoscience and Remote Sensing</p>
-                            <p class="publication-year">2021</p>
                             <div class="publication-links">
                                 <a href="https://ieeexplore.ieee.org/abstract/document/9497508" target="_blank" class="badge bg-primary">PDF</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 2022 Publications -->
+                    <div class="publication-year">2022</div>
+                    
                     <!-- Publication 20 -->
                     <div class="publication-item" data-type="journal">
                         <div class="publication-header">
@@ -582,7 +621,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">IEEE Transactions on Neural Networks and Learning Systems</p>
-                            <p class="publication-year">2022</p>
                             <div class="publication-links">
                                 <a href="https://ieeexplore.ieee.org/abstract/document/9791487" target="_blank" class="badge bg-primary">PDF</a>
                                 <a href="https://github.com/Biglemon-Ning/PMSDAN" target="_blank" class="badge bg-success">Code</a>
@@ -590,6 +628,9 @@
                         </div>
                     </div>
 
+                    <!-- 2021 Publications -->
+                    <div class="publication-year">2021</div>
+                    
                     <!-- Publication 21 -->
                     <div class="publication-item" data-type="conference">
                         <div class="publication-header">
@@ -601,7 +642,6 @@
                         </p>
                         <div class="publication-footer">
                             <p class="publication-venue">2021 CIE International Conference on Radar (Radar)</p>
-                            <p class="publication-year">2021</p>
                             <div class="publication-links">
                                 <a href="https://ieeexplore.ieee.org/abstract/document/10028310" target="_blank" class="badge bg-primary">PDF</a>
                             </div>

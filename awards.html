@@ -18,8 +18,8 @@
         .award-item {
             background: var(--white);
             border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
             box-shadow: var(--shadow);
             border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
@@ -67,7 +67,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         
         .award-category {
@@ -92,7 +92,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
         }
         
@@ -111,8 +111,8 @@
         
         .award-description {
             color: var(--secondary-color);
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
         }
         
         .category-academic {
@@ -139,8 +139,8 @@
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 3rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .stat-item {
@@ -179,7 +179,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             position: relative;
         }
         
@@ -198,7 +198,7 @@
         }
         
         .filter-buttons {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
         
         .filter-btn {
@@ -225,22 +225,26 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="index.html#home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="publications.html">Publications</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="awards.html">Awards</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tutorials.html">Tutorials</a>
+                        <a class="nav-link" href="index.html#news">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="index.html#contact">Contact</a>
                     </li>
                 </ul>
             </div>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services - Liangbo Ning</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .service-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .service-title {
+            color: var(--dark);
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.1rem;
+            flex: 1;
+        }
+        
+        .service-content {
+            color: var(--secondary-color);
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .service-list li {
+            background-color: var(--light-bg);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .service-list li:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .filter-buttons {
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            margin: 0.25rem;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .type-conference {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .type-journal {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .services-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .services-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+        
+        .service-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .service-year::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        
+        .service-stats {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Liangbo Ning</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="publications.html">Publications</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                            <li><a class="dropdown-item active" href="services.html">Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="awards.html">Awards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Universe Animation -->
+    <div id="universe-background"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="fw-bold mb-3">Academic Services</h1>
+                        <p class="lead mb-4">Contributing to the academic community as a reviewer and committee member</p>
+                        <!-- <div class="service-stats">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="20">0</h3>
+                                        <p>Conference Reviews</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="13">0</h3>
+                                        <p>Journal Reviews</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="15">0</h3>
+                                        <p>Conferences</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-item">
+                                        <h3 class="counter" data-target="13">0</h3>
+                                        <p>Journals</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="filter-buttons text-center">
+                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="conference">Conference</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="journal">Journal</button>
+                </div>
+
+                <!-- Services Timeline -->
+                <div class="services-timeline">
+                    <!-- Conference Reviewing -->
+                    <div class="service-year">Conference Reviewing</div>
+                    
+                    <div class="service-item" data-type="conference">
+                        <div class="service-header">
+                            <span class="service-type type-conference">Conference Reviewer</span>
+                            <h3 class="service-title">Major Conferences</h3>
+                        </div>
+                        <p class="service-content">Serving as a reviewer for top-tier conferences in data mining, machine learning, and artificial intelligence.</p>
+                        <ul class="service-list">
+                            <li>KDD - 23/24/25/26</li>
+                            <li>WWW - 24/25</li>
+                            <li>IJCAI - 24</li>
+                            <li>ACM MM - 25</li>
+                            <li>ACL - 25</li>
+                        </ul>
+                    </div>
+
+                    <!-- Journal Reviewing -->
+                    <div class="service-year">Journal Reviewing</div>
+                    
+                    <div class="service-item" data-type="journal">
+                        <div class="service-header">
+                            <span class="service-type type-journal">Journal Reviewer</span>
+                            <h3 class="service-title">IEEE Transactions</h3>
+                        </div>
+                        <p class="service-content">Reviewing manuscripts for prestigious IEEE journals in knowledge engineering and neural networks.</p>
+                        <ul class="service-list">
+                            <li>IEEE TKDE</li>
+                            <li>IEEE TNNLS</li>
+                            <li>IEEE TSMC</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item" data-type="journal">
+                        <div class="service-header">
+                            <span class="service-type type-journal">Journal Reviewer</span>
+                            <h3 class="service-title">ACM Transactions</h3>
+                        </div>
+                        <p class="service-content">Contributing to ACM journals focused on knowledge discovery and information systems.</p>
+                        <ul class="service-list">
+                            <li>ACM TKDD</li>
+                            <li>ACM TOIS</li>
+                            <li>ACM TIST</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-item" data-type="journal">
+                        <div class="service-header">
+                            <span class="service-type type-journal">Journal Reviewer</span>
+                            <h3 class="service-title">Other Journals</h3>
+                        </div>
+                        <p class="service-content">Reviewing for specialized journals in pattern recognition and knowledge-based systems.</p>
+                        <ul class="service-list">
+                            <li>Pattern Recognition</li>
+                            <li>Knowledge-based Systems</li>
+                            <li>Neurocomputing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Liangbo Ning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Service filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const services = document.querySelectorAll('.service-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    services.forEach(service => {
+                        if (filter === 'all' || service.getAttribute('data-type') === filter) {
+                            service.style.display = 'block';
+                            service.style.animation = 'fadeIn 0.5s ease-in';
+                        } else {
+                            service.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Add fadeIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

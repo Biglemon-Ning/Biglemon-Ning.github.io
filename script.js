@@ -33,6 +33,68 @@ function initNavbar() {
             }
         });
     });
+    
+    // Enhanced dropdown menu functionality
+    initDropdownMenu();
+}
+
+// Dropdown menu functionality
+function initDropdownMenu() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+        
+        // Desktop hover behavior
+        if (window.innerWidth > 992) {
+            // Show dropdown on hover
+            dropdown.addEventListener('mouseenter', function() {
+                dropdownMenu.style.display = 'block';
+                dropdownMenu.style.opacity = '1';
+                dropdownMenu.style.transform = 'translateY(0)';
+            });
+            
+            // Hide dropdown when mouse leaves
+            dropdown.addEventListener('mouseleave', function() {
+                dropdownMenu.style.display = 'none';
+                dropdownMenu.style.opacity = '0';
+                dropdownMenu.style.transform = 'translateY(-10px)';
+            });
+        }
+        
+        // Mobile click behavior
+        dropdownToggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                const isOpen = dropdownMenu.classList.contains('show');
+                
+                // Close all other dropdowns
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) {
+                        d.querySelector('.dropdown-menu').classList.remove('show');
+                    }
+                });
+                
+                // Toggle current dropdown
+                if (isOpen) {
+                    dropdownMenu.classList.remove('show');
+                } else {
+                    dropdownMenu.classList.add('show');
+                }
+            }
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                dropdownMenu.classList.remove('show');
+            });
+        }
+    });
 }
 
 // Smooth scrolling for anchor links
