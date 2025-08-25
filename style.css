@@ -686,10 +686,16 @@ body {
 
 /* Footer */
 .footer {
-    background-color: var(--dark);
-    color: var(--white);
+    background-color: #ffffff;
+    color: var(--dark);
     padding: 1.5rem 0;
     text-align: center;
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
 }
 
 /* Responsive Design */
@@ -871,6 +877,11 @@ html {
     }
     
     .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .footer {
         margin-left: 0;
         width: 100%;
     }
