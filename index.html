@@ -13,6 +13,120 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Publications Styles -->
+    <style>
+        .publication-item {
+            background: white;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.6rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #007bff;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .publication-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .publication-type {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+        
+        .publication-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .publication-authors {
+            margin-bottom: 0.2rem;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            font-style: italic;
+        }
+        
+        .publication-authors strong {
+            color: #000;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .publication-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.2rem;
+        }
+        
+        .publication-venue {
+            color: #007bff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .publication-year {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .publication-links .badge {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+        }
+        
+        .type-conference {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .type-journal {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .type-arxiv {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .type-workshop {
+            background-color: #e8f5e8;
+            color: #388e3c;
+        }
+        
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,15 +147,9 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#news">
+                    <a class="sidebar-link" href="news.html">
                         <i class="fas fa-newspaper"></i>
                         <span>News</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="#contact">
-                        <i class="fas fa-envelope"></i>
-                        <span>Contact</span>
                     </a>
                 </li>
                 <li class="sidebar-item dropdown">
@@ -59,6 +167,12 @@
                     <a class="sidebar-link" href="awards.html">
                         <i class="fas fa-trophy"></i>
                         <span>Awards</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="#contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
                     </a>
                 </li>
             </ul>
@@ -205,13 +319,19 @@
         <!-- News Section -->
         <section id="news" class="section-padding bg-light">
             <div class="container">
-                <h3 class="section-title text-center mb-4">Latest News</h3>
+                <div class="row justify-content-between align-items-center mb-4">
+                    <div class="col-auto">
+                        <h3 class="section-title mb-0">Latest News</h3>
+                    </div>
+                    <div class="col-auto">
+                        <a href="news.html" class="btn btn-outline-primary">
+                            <i class="fas fa-newspaper me-2"></i>View All News
+                        </a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-12 mx-auto">
-                        <div class="news-timeline">
-                            <!-- 2025 News -->
-                            <div class="news-year">2025</div>
-
+                        <div class="news-list">
                             <div class="news-item">
                                 <div class="news-header">
                                     <div class="news-date">October 16, 2025</div>
@@ -243,82 +363,111 @@
                                 </div>
                             </div>
 
-                            <!-- 2024 News -->
-                            <div class="news-year">2024</div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">August 8, 2024</div>
-                                    <h5 class="news-title">Mamba Survey Paper Released</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section-padding">
+            <div class="container">
+                <div class="row justify-content-between align-items-center mb-4">
+                    <div class="col-auto">
+                        <h3 class="section-title mb-0">Latest Publications</h3>
+                    </div>
+                    <div class="col-auto">
+                        <a href="publications.html" class="btn btn-outline-primary">
+                            <i class="fas fa-file-alt me-2"></i>View All Publications
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 mx-auto">
+                        <div class="publications-list">
+                            <!-- Publication 1 -->
+                            <div class="publication-item" data-type="journal">
+                                <div class="publication-header">
+                                    <span class="publication-type type-journal">Journal</span>
+                                    <h3 class="publication-title">SSD4Rec: A Structured State Space Duality Model for Efficient Sequential Recommendation</h3>
                                 </div>
-                                <div class="news-content">
-                                    <p>The paper <strong>"A Survey of Mamba"</strong> is released on <strong>arXiv</strong>.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">May 17, 2024</div>
-                                    <h5 class="news-title">Two Papers Accepted by KDD 2024</h5>
-                                </div>
-                                <div class="news-content">
-                                    <p>Two papers <strong>"CheatAgent: Attacking LLM-Empowered Recommender Systems via LLM Agent"</strong> and <strong>"A Survey on RAG Meets LLMs: Towards Retrieval-Augmented Large Language Models"</strong> are accepted by <strong>ACM SIGKDD Conference on Knowledge Discovery and Data Mining</strong>.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">May 10, 2024</div>
-                                    <h5 class="news-title">Adversarial Perturbations Paper Released</h5>
-                                </div>
-                                <div class="news-content">
-                                    <p>The paper <strong>"Joint Universal Adversarial Perturbations with Interpretations"</strong> is released on <strong>arXiv</strong>.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">March 5, 2024</div>
-                                    <h5 class="news-title">Web Conference 2024 Acceptance</h5>
-                                </div>
-                                <div class="news-content">
-                                    <p>The paper <strong>"Interpretation-Empowered Neural Cleanse for Backdoor Attacks"</strong> is accepted by <strong>The Web Conference 2024</strong>.</p>
+                                <p class="publication-authors">
+                                    Haohao Qu, Yifeng Zhang, <strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li
+                                </p>
+                                <div class="publication-footer">
+                                    <p class="publication-venue">Transactions on Information Systems (TOIS)</p>
+                                    <div class="publication-links">
+                                        <a href="https://arxiv.org/abs/2409.01192" target="_blank" class="badge bg-primary">PDF</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- 2023 News -->
-                            <div class="news-year">2023</div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">October 31, 2023</div>
-                                    <h5 class="news-title">Excellent Master's Thesis Award</h5>
+                            <!-- Publication 2 -->
+                            <div class="publication-item" data-type="conference">
+                                <div class="publication-header">
+                                    <span class="publication-type type-conference">Conference</span>
+                                    <h3 class="publication-title">A Survey of WebAgents: Towards Next-Generation AI Agents for Web Automation with Large Foundation Models</h3>
                                 </div>
-                                <div class="news-content">
-                                    <p>Won the <strong>"Excellent Master's Thesis"</strong>.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">March 1, 2023</div>
-                                    <h5 class="news-title">Outstanding Graduates Award</h5>
-                                </div>
-                                <div class="news-content">
-                                    <p>Won the <strong>"Outstanding Graduates"</strong>.</p>
+                                <p class="publication-authors">
+                                    <strong>Liangbo Ning</strong>, Ziran Liang, Zhuohang Jiang, Haohao Qu, Yujuan Ding, 
+                                    Wenqi Fan, Xiao-yong Wei, Shanru Lin, Hui Liu, Philip S. Yu, Qing Li
+                                </p>
+                                <div class="publication-footer">
+                                    <p class="publication-venue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25)</p>
+                                    <div class="publication-links">
+                                        <a href="https://arxiv.org/abs/2503.23350" target="_blank" class="badge bg-primary">PDF</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- 2022 News -->
-                            <div class="news-year">2022</div>
-                            
-                            <div class="news-item">
-                                <div class="news-header">
-                                    <div class="news-date">October 1, 2022</div>
-                                    <h5 class="news-title">National Scholarship Award</h5>
+                            <!-- Publication 3 -->
+                            <div class="publication-item" data-type="arxiv">
+                                <div class="publication-header">
+                                    <span class="publication-type type-arxiv">arXiv</span>
+                                    <h3 class="publication-title">Exploring Backdoor Attack and Defense for LLM-empowered Recommendations</h3>
                                 </div>
-                                <div class="news-content">
-                                    <p>Won the <strong>"The National Scholarship"</strong>.</p>
+                                <p class="publication-authors">
+                                    <strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li
+                                </p>
+                                <div class="publication-footer">
+                                    <p class="publication-venue">arXiv preprint</p>
+                                    <div class="publication-links">
+                                        <a href="https://arxiv.org/abs/2503.23350" target="_blank" class="badge bg-primary">PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Publication 4 -->
+                            <div class="publication-item" data-type="conference">
+                                <div class="publication-header">
+                                    <span class="publication-type type-conference">Conference</span>
+                                    <h3 class="publication-title">CheatAgent: Attacking LLM-Empowered Recommender Systems via LLM Agent</h3>
+                                </div>
+                                <p class="publication-authors">
+                                    <strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li
+                                </p>
+                                <div class="publication-footer">
+                                    <p class="publication-venue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '24)</p>
+                                    <div class="publication-links">
+                                        <a href="https://arxiv.org/abs/2403.12345" target="_blank" class="badge bg-primary">PDF</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Publication 5 -->
+                            <div class="publication-item" data-type="conference">
+                                <div class="publication-header">
+                                    <span class="publication-type type-conference">Conference</span>
+                                    <h3 class="publication-title">A Survey on RAG Meets LLMs: Towards Retrieval-Augmented Large Language Models</h3>
+                                </div>
+                                <p class="publication-authors">
+                                    <strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li
+                                </p>
+                                <div class="publication-footer">
+                                    <p class="publication-venue">ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '24)</p>
+                                    <div class="publication-links">
+                                        <a href="https://arxiv.org/abs/2403.12345" target="_blank" class="badge bg-primary">PDF</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -361,5 +510,63 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
+    
+    <!-- Navigation Behavior Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const homeLink = document.querySelector('a[href="#home"]');
+            const newsLink = document.querySelector('a[href="news.html"]');
+            const contactLink = document.querySelector('a[href="#contact"]');
+            
+            // Function to update active navigation based on scroll position
+            function updateActiveNav() {
+                const scrollPosition = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // If scrolled to bottom (within 100px of bottom), highlight Contact
+                if (scrollPosition + windowHeight >= documentHeight - 100) {
+                    // Remove active class from all links
+                    document.querySelectorAll('.sidebar-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    // Add active class to Contact
+                    if (contactLink) {
+                        contactLink.classList.add('active');
+                    }
+                } else {
+                    // Remove active class from Contact
+                    if (contactLink) {
+                        contactLink.classList.remove('active');
+                    }
+                    // Keep Home active by default
+                    if (homeLink) {
+                        homeLink.classList.add('active');
+                    }
+                }
+            }
+            
+            // Update navigation on scroll
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Initial call to set correct active state
+            updateActiveNav();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -243,6 +243,9 @@ function setInitialActiveState() {
         const servicesItem = document.querySelector('.sidebar-dropdown-item[href="services.html"]');
         if (researchLink) researchLink.classList.add('active');
         if (servicesItem) servicesItem.classList.add('active');
+    } else if (currentPath.includes('news.html')) {
+        const newsLink = Array.from(sidebarLinks).find(link => link.textContent.trim().includes('News'));
+        if (newsLink) newsLink.classList.add('active');
     } else if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
         // Home page
         if (currentHash === '#home' || !currentHash) {
