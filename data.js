@@ -2,6 +2,11 @@
 const academicData = {
     news: [
         {
+            date: "January 13, 2026",
+            title: "TOIS Acceptance",
+            content: 'The research paper <strong>"Retrieval-Augmented Purifier for Robust LLM-Empowered Recommendation"</strong> is accepted by <strong>Transactions on Information Systems (TOIS)</strong>.'
+        },
+        {
             date: "October 24, 2025",
             title: "WSDM Acceptance",
             content: 'The research paper <strong>"Towards Next-Generation Recommender Systems: A Benchmark for Personalized Recommendation Assistant with LLMs"</strong> is accepted by <strong>The 18th ACM International Conference on Web Search and Data Mining (WSDM \'25)</strong>.'
@@ -80,6 +85,17 @@ const academicData = {
     
     publications: [
         {
+            year: 2026,
+            type: "journal",
+            typeLabel: "journal",
+            title: "Retrieval-Augmented Purifier for Robust LLM-Empowered Recommendation",
+            authors: '<strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li',
+            venue: "Transactions on Information Systems (TOIS)",
+            links: [
+                { type: "PDF", url: "https://arxiv.org/abs/2504.02458", class: "bg-primary" }
+            ]
+        },
+        {
             year: 2025,
             type: "conference",
             typeLabel: "Conference",
@@ -132,17 +148,6 @@ const academicData = {
             venue: "IEEE Transactions on Neural Networks and Learning Systems",
             links: [
                 { type: "PDF", url: "https://ieeexplore.ieee.org/document/10988896", class: "bg-primary" }
-            ]
-        },
-        {
-            year: 2025,
-            type: "arxiv",
-            typeLabel: "arXiv",
-            title: "Retrieval-Augmented Purifier for Robust LLM-Empowered Recommendation",
-            authors: '<strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li',
-            venue: "arXiv preprint",
-            links: [
-                { type: "PDF", url: "https://arxiv.org/abs/2504.02458", class: "bg-primary" }
             ]
         },
         {
