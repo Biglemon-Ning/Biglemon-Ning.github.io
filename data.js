@@ -3,12 +3,17 @@ const academicData = {
     news: [
         {
             date: "January 13, 2026",
+            title: "WWW 2026 Acceptance",
+            content: 'The research paper <strong>"Inference Cost Attacks for Retrieval-Augmented Large Language Models"</strong> is accepted by <strong>The Web Conference (WWW \'26)</strong>.'
+        },
+        {
+            date: "January 13, 2026",
             title: "TOIS Acceptance",
             content: 'The research paper <strong>"Retrieval-Augmented Purifier for Robust LLM-Empowered Recommendation"</strong> is accepted by <strong>Transactions on Information Systems (TOIS)</strong>.'
         },
         {
             date: "October 24, 2025",
-            title: "WSDM Acceptance",
+            title: "WSDM 2026 Acceptance",
             content: 'The research paper <strong>"Towards Next-Generation Recommender Systems: A Benchmark for Personalized Recommendation Assistant with LLMs"</strong> is accepted by <strong>The 18th ACM International Conference on Web Search and Data Mining (WSDM \'25)</strong>.'
         },
         {
@@ -84,6 +89,17 @@ const academicData = {
     ],
     
     publications: [
+        {
+            year: 2026,
+            type: "conference",
+            typeLabel: "Conference",
+            title: "Inference Cost Attacks for Retrieval-Augmented Large Language Models",
+            authors: 'Chengliang Liu* <strong>Liangbo Ning*</strong>, Yujuan Ding, Wenqi Fan',
+            venue: "The Web Conference (WWW '26)",
+            links: [
+                { type: "PDF", url: "https://scholar.google.com/citations?user=z2PpO8MAAAAJ&hl=zh-CN&oi=ao", class: "bg-primary" }
+            ]
+        },
         {
             year: 2026,
             type: "journal",
