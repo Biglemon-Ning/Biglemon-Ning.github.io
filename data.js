@@ -2,6 +2,11 @@
 const academicData = {
     news: [
         {
+            date: "February 17, 2026",
+            title: "PAKDD 2026 Acceptance",
+            content: 'The research paper <strong>"Joint Universal Adversarial Perturbations with Interpretations"</strong> is accepted by <strong>Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD \'26)</strong>.'
+        },
+        {
             date: "January 13, 2026",
             title: "WWW 2026 Acceptance",
             content: 'The research paper <strong>"Inference Cost Attacks for Retrieval-Augmented Large Language Models"</strong> is accepted by <strong>The Web Conference (WWW \'26)</strong>.'
@@ -89,6 +94,17 @@ const academicData = {
     ],
     
     publications: [
+        {
+            year: 2026,
+            type: "conference",
+            typeLabel: "Conference",
+            title: "Joint Universal Adversarial Perturbations with Interpretations",
+            authors: '<strong>Liangbo Ning</strong>, Zeyu Dai, Wenqi Fan, Jingran Su, Chao Pan, Luning Wang, Qing Li',
+            venue: "Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD '26)",
+            links: [
+                { type: "PDF", url: "https://arxiv.org/abs/2408.01715", class: "bg-primary" }
+            ]
+        },
         {
             year: 2026,
             type: "conference",
@@ -253,17 +269,6 @@ const academicData = {
             venue: "arXiv preprint",
             links: [
                 { type: "PDF", url: "https://arxiv.org/abs/2408.01129", class: "bg-primary" }
-            ]
-        },
-        {
-            year: 2024,
-            type: "arxiv",
-            typeLabel: "arXiv",
-            title: "Joint Universal Adversarial Perturbations with Interpretations",
-            authors: '<strong>Liangbo Ning</strong>, Zeyu Dai, Wenqi Fan, Jingran Su, Chao Pan, Luning Wang, Qing Li',
-            venue: "arXiv preprint",
-            links: [
-                { type: "PDF", url: "https://arxiv.org/abs/2408.01715", class: "bg-primary" }
             ]
         },
         {
