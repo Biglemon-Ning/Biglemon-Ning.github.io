@@ -2,6 +2,11 @@
 const academicData = {
     news: [
         {
+            date: "March 16, 2026",
+            title: "TIST Acceptance",
+            content: 'The survey paper <strong>"A survey of mamba"</strong> is accepted by <strong>ACM Transactions on Intelligent Systems and Technology (TIST)</strong>.'
+        },
+        {
             date: "February 17, 2026",
             title: "PAKDD 2026 Acceptance",
             content: 'The research paper <strong>"Joint Universal Adversarial Perturbations with Interpretations"</strong> is accepted by <strong>Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD \'26)</strong>.'
@@ -94,6 +99,17 @@ const academicData = {
     ],
     
     publications: [
+        {
+            year: 2026,
+            type: "journal",
+            typeLabel: "journal",
+            title: "A Survey of Mamba",
+            authors: 'Haohao Qu, <strong>Liangbo Ning</strong>, Rui An, Wenqi Fan, Tyler Derr, Hui Liu, Xin Xu, Qing Li',
+            venue: "ACM Transactions on Intelligent Systems and Technology (TIST)",
+            links: [
+                { type: "PDF", url: "https://arxiv.org/abs/2408.01129", class: "bg-primary" }
+            ]
+        },
         {
             year: 2026,
             type: "conference",
@@ -258,17 +274,6 @@ const academicData = {
             venue: "International Conference on Belief Functions",
             links: [
                 { type: "PDF", url: "https://link.springer.com/chapter/10.1007/978-3-031-67977-3_3", class: "bg-primary" }
-            ]
-        },
-        {
-            year: 2024,
-            type: "arxiv",
-            typeLabel: "arXiv",
-            title: "A Survey of Mamba",
-            authors: 'Haohao Qu, <strong>Liangbo Ning</strong>, Rui An, Wenqi Fan, Tyler Derr, Hui Liu, Xin Xu, Qing Li',
-            venue: "arXiv preprint",
-            links: [
-                { type: "PDF", url: "https://arxiv.org/abs/2408.01129", class: "bg-primary" }
             ]
         },
         {

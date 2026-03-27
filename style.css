@@ -479,7 +479,7 @@ body {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     padding-left: 3rem;
 }
 
@@ -497,11 +497,24 @@ body {
 
 .timeline-content h5 {
     color: var(--dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.25;
+}
+
+.timeline-content p {
+    margin-bottom: 0.3rem;
+    line-height: 1.35;
 }
 
 .timeline-content small {
     font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
 }
 
 /* News Section */
