@@ -2,6 +2,11 @@
 const academicData = {
     news: [
         {
+            date: "April 3, 2026",
+            title: "SIGIR Acceptance",
+            content: 'The research paper <strong>"mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answeringa"</strong> is accepted by <strong>ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR \’26)</strong>.'
+        },
+        {
             date: "March 16, 2026",
             title: "TIST Acceptance",
             content: 'The survey paper <strong>"A survey of mamba"</strong> is accepted by <strong>ACM Transactions on Intelligent Systems and Technology (TIST)</strong>.'
@@ -99,6 +104,17 @@ const academicData = {
     ],
     
     publications: [
+        {
+            year: 2026,
+            type: "conference",
+            typeLabel: "conference",
+            title: "mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answering",
+            authors: 'Xu Yuan, <strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li',
+            venue: "ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR \’26)",
+            links: [
+                { type: "PDF", url: "https://arxiv.org/abs/2508.05318", class: "bg-primary" }
+            ]
+        },
         {
             year: 2026,
             type: "journal",
@@ -207,17 +223,6 @@ const academicData = {
             venue: "IEEE Transactions on Fuzzy Systems",
             links: [
                 { type: "PDF", url: "https://ieeexplore.ieee.org/abstract/document/11023236", class: "bg-primary" }
-            ]
-        },
-        {
-            year: 2025,
-            type: "arxiv",
-            typeLabel: "arXiv",
-            title: "mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answering",
-            authors: 'Xu Yuan, <strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li',
-            venue: "arXiv preprint",
-            links: [
-                { type: "PDF", url: "https://arxiv.org/abs/2508.05318", class: "bg-primary" }
             ]
         },
         {
