@@ -9,7 +9,7 @@ const academicData = {
         {
             date: "April 3, 2026",
             title: "SIGIR Acceptance",
-            content: 'The research paper <strong>"mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answeringa"</strong> is accepted by <strong>ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR \’26)</strong>.'
+            content: 'The research paper <strong>"mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answering"</strong> is accepted by <strong>ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR \’26)</strong>.'
         },
         {
             date: "March 16, 2026",
