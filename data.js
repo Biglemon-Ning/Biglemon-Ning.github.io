@@ -2,6 +2,11 @@
 const academicData = {
     news: [
         {
+            date: "April 7, 2026",
+            title: "ACL Acceptance",
+            content: 'The research papers <strong>"When Efficiency Becomes a Vulnerability: Computational Cost Attacks on WebAgents"</strong> and <strong>"ReRec: Reasoning-Augmented LLM-based Recommendation Assistant via Reinforcement Fine-tuning"</strong> are accepted by <strong>Annual Meeting of the Association for Computational Linguistics (ACL \’26 Main)</strong>.'
+        },
+        {
             date: "April 3, 2026",
             title: "SIGIR Acceptance",
             content: 'The research paper <strong>"mKG-RAG: Multimodal Knowledge Graph-Enhanced RAG for Visual Question Answeringa"</strong> is accepted by <strong>ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR \’26)</strong>.'
@@ -104,6 +109,28 @@ const academicData = {
     ],
     
     publications: [
+        {
+            year: 2026,
+            type: "conference",
+            typeLabel: "conference",
+            title: "When Efficiency Becomes a Vulnerability: Computational Cost Attacks on WebAgents",
+            authors: '<strong>Liangbo Ning</strong>, Yuchen Zhu, Heqing HUANG, Xin Wang, Yi Chang, Li Qing, Wenqi Fan',
+            venue: "Annual Meeting of the Association for Computational Linguistics (ACL \’26 Main)",
+            links: [
+                { type: "PDF", url: "https://scholar.google.com/citations?hl=en&user=z2PpO8MAAAAJ&view_op=list_works", class: "bg-primary" }
+            ]
+        },
+        {
+            year: 2026,
+            type: "conference",
+            typeLabel: "conference",
+            title: "ReRec: Reasoning-Augmented LLM-based Recommendation Assistant via Reinforcement Fine-tuning",
+            authors: 'Jiani Huang, Shijie Wang, <strong>Liangbo Ning</strong>, Wenqi Fan, Li Qing',
+            venue: "Annual Meeting of the Association for Computational Linguistics (ACL \’26 Main)",
+            links: [
+                { type: "PDF", url: "https://scholar.google.com/citations?hl=en&user=z2PpO8MAAAAJ&view_op=list_works", class: "bg-primary" }
+            ]
+        },
         {
             year: 2026,
             type: "conference",
