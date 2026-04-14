@@ -128,7 +128,7 @@ const academicData = {
             authors: 'Jiani Huang, Shijie Wang, <strong>Liangbo Ning</strong>, Wenqi Fan, Li Qing',
             venue: "Annual Meeting of the Association for Computational Linguistics (ACL \’26 Main)",
             links: [
-                { type: "PDF", url: "https://scholar.google.com/citations?hl=en&user=z2PpO8MAAAAJ&view_op=list_works", class: "bg-primary" }
+                { type: "PDF", url: "https://arxiv.org/abs/2604.07851", class: "bg-primary" }
             ]
         },
         {
@@ -172,7 +172,7 @@ const academicData = {
             authors: 'Chengliang Liu* <strong>Liangbo Ning*</strong>, Yujuan Ding, Wenqi Fan',
             venue: "The Web Conference (WWW '26)",
             links: [
-                { type: "PDF", url: "https://scholar.google.com/citations?user=z2PpO8MAAAAJ&hl=zh-CN&oi=ao", class: "bg-primary" }
+                { type: "PDF", url: "https://dl.acm.org/doi/abs/10.1145/3774904.3792683", class: "bg-primary" }
             ]
         },
         {
