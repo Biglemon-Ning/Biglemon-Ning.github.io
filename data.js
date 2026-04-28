@@ -1,4 +1,4 @@
-// Academic Data - Centralized data source for news and publications
+// Academic Data - Centralized data source for news, publications, and awards
 const academicData = {
     news: [
         {
@@ -368,6 +368,121 @@ const academicData = {
             links: [
                 { type: "PDF", url: "https://ieeexplore.ieee.org/abstract/document/10028310", class: "bg-primary" }
             ]
+        }
+    ],
+
+    awards: [
+        {
+            year: 2025,
+            category: "academic",
+            categoryLabel: "Academic Excellence",
+            title: "KDD 2025 Commendable Reviewers",
+            organization: "ACM SIGKDD",
+            date: "July 2025"
+        },
+        {
+            year: 2024,
+            category: "academic",
+            categoryLabel: "Academic Excellence",
+            title: "KDD 2024 Student Travel Award",
+            organization: "ACM SIGKDD",
+            date: "July 2024"
+        },
+        {
+            year: 2023,
+            category: "academic",
+            categoryLabel: "Academic Excellence",
+            title: "Excellent Master's Thesis",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2023"
+        },
+        {
+            year: 2023,
+            category: "honor",
+            categoryLabel: "Graduation Honor",
+            title: "Outstanding Graduates",
+            organization: "Northwestern Polytechnical University",
+            date: "March 2023"
+        },
+        {
+            year: 2022,
+            category: "scholarship",
+            categoryLabel: "National Recognition",
+            title: "The National Scholarship",
+            organization: "Ministry of Education, China",
+            date: "October 2022"
+        },
+        {
+            year: 2022,
+            category: "scholarship",
+            categoryLabel: "Academic Excellence",
+            title: "The First Prize Scholarship",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2022"
+        },
+        {
+            year: 2021,
+            category: "scholarship",
+            categoryLabel: "Academic Excellence",
+            title: "The Second Prize Scholarship",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2021"
+        },
+        {
+            year: 2020,
+            category: "competition",
+            categoryLabel: "National Competition",
+            title: "The First Prize of the 15th National University Students Intelligent Car Race",
+            organization: "Intelligent Car Race Organization Committee",
+            date: "August 2020"
+        },
+        {
+            year: 2019,
+            category: "competition",
+            categoryLabel: "National Competition",
+            title: "The First Prize of the 14th National University Students Intelligent Car Race",
+            organization: "Intelligent Car Race Organization Committee",
+            date: "August 2019"
+        },
+        {
+            year: 2019,
+            category: "scholarship",
+            categoryLabel: "Academic Excellence",
+            title: "The First Prize Scholarship",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2019"
+        },
+        {
+            year: 2018,
+            category: "competition",
+            categoryLabel: "National Competition",
+            title: "The Second Prize of the 13th National University Students Intelligent Car Race",
+            organization: "Intelligent Car Race Organization Committee",
+            date: "August 2018"
+        },
+        {
+            year: 2018,
+            category: "scholarship",
+            categoryLabel: "Academic Excellence",
+            title: "The First Prize Scholarship",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2018"
+        },
+        {
+            year: 2018,
+            category: "scholarship",
+            categoryLabel: "Industry Recognition",
+            title: "The Endress+Hauser Scholarship",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2018"
+        },
+        {
+            year: 2017,
+            category: "scholarship",
+            categoryLabel: "Academic Excellence",
+            title: "The Second Prize Scholarship",
+            organization: "Northwestern Polytechnical University",
+            date: "October 2017"
         }
     ]
 };
