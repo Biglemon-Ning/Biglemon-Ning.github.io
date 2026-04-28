@@ -2,6 +2,11 @@
 const academicData = {
     news: [
         {
+            date: "April 28, 2026",
+            title: "TKDE Acceptance",
+            content: 'The research paper <strong>"Exploring Backdoor Attack and Defense for LLM-empowered Recommendations"</strong> is accepted by <strong>IEEE Transactions on Knowledge and Data Engineering (TKDE)</strong>.'
+        },
+        {
             date: "April 7, 2026",
             title: "ACL Acceptance",
             content: 'The research papers <strong>"When Efficiency Becomes a Vulnerability: Computational Cost Attacks on WebAgents"</strong> and <strong>"ReRec: Reasoning-Augmented LLM-based Recommendation Assistant via Reinforcement Fine-tuning"</strong> are accepted by <strong>Annual Meeting of the Association for Computational Linguistics (ACL \’26 Main)</strong>.'
@@ -111,6 +116,17 @@ const academicData = {
     publications: [
         {
             year: 2026,
+            type: "journal",
+            typeLabel: "journal",
+            title: "Exploring Backdoor Attack and Defense for LLM-empowered Recommendations",
+            authors: '<strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li',
+            venue: "IEEE Transactions on Knowledge and Data Engineering (TKDE)",
+            links: [
+                { type: "PDF", url: "https://arxiv.org/abs/2504.11182", class: "bg-primary" }
+            ]
+        },
+        {
+            year: 2026,
             type: "conference",
             typeLabel: "conference",
             title: "When Efficiency Becomes a Vulnerability: Computational Cost Attacks on WebAgents",
@@ -217,17 +233,6 @@ const academicData = {
             venue: "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25)",
             links: [
                 { type: "PDF", url: "https://arxiv.org/abs/2503.23350", class: "bg-primary" }
-            ]
-        },
-        {
-            year: 2025,
-            type: "arxiv",
-            typeLabel: "arXiv",
-            title: "Exploring Backdoor Attack and Defense for LLM-empowered Recommendations",
-            authors: '<strong>Liangbo Ning</strong>, Wenqi Fan, Qing Li',
-            venue: "arXiv preprint",
-            links: [
-                { type: "PDF", url: "https://arxiv.org/abs/2504.11182", class: "bg-primary" }
             ]
         },
         {
