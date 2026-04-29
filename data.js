@@ -432,7 +432,7 @@ const academicData = {
             year: 2020,
             category: "competition",
             categoryLabel: "National Competition",
-            title: "The First Prize of the 15th National University Students Intelligent Car Race",
+            title: "1st Prize of the 15th National Undergraduate Smart Car Competition",
             organization: "Intelligent Car Race Organization Committee",
             date: "August 2020"
         },
@@ -440,7 +440,7 @@ const academicData = {
             year: 2019,
             category: "competition",
             categoryLabel: "National Competition",
-            title: "The First Prize of the 14th National University Students Intelligent Car Race",
+            title: "1st Prize of the 14th National Undergraduate Smart Car Competition",
             organization: "Intelligent Car Race Organization Committee",
             date: "August 2019"
         },
@@ -456,7 +456,7 @@ const academicData = {
             year: 2018,
             category: "competition",
             categoryLabel: "National Competition",
-            title: "The Second Prize of the 13th National University Students Intelligent Car Race",
+            title: "2nd Prize of the 13th National Undergraduate Smart Car Competition",
             organization: "Intelligent Car Race Organization Committee",
             date: "August 2018"
         },

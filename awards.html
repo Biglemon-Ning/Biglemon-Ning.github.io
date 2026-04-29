@@ -18,13 +18,17 @@
         .award-item {
             background: var(--white);
             border-radius: 12px;
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.6rem;
+            padding: 0.65rem 1rem;
+            margin-bottom: 0.55rem;
             box-shadow: var(--shadow);
             border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            flex-wrap: wrap;
         }
         
         .award-item::before {
@@ -48,53 +52,59 @@
             box-shadow: var(--shadow-lg);
         }
         
-        .award-header {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            margin-bottom: 0.25rem;
-            flex-wrap: wrap;
-        }
-        
         .award-category {
             display: inline-block;
             padding: 0.2rem 0.65rem;
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         
         .award-title {
             color: var(--dark);
             font-weight: 600;
             margin: 0;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             line-height: 1.3;
-            flex: 1;
         }
         
-        .award-footer {
-            display: flex;
+        .award-title-sep {
+            color: var(--secondary-color);
+            opacity: 0.45;
+            font-size: 0.9rem;
+            line-height: 1;
+            margin: 0 -0.15rem;
+        }
+        
+        .award-meta {
+            display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0;
-            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin: 0;
         }
         
         .award-organization {
             color: var(--primary-color);
             font-weight: 500;
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+        }
+        
+        .award-meta-sep {
+            color: var(--secondary-color);
+            opacity: 0.5;
+            font-size: 0.85rem;
+            line-height: 1;
         }
         
         .award-date {
             color: var(--secondary-color);
-            font-weight: 600;
+            font-weight: 500;
             margin: 0;
             white-space: nowrap;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .category-academic {
@@ -143,40 +153,6 @@
         
         .award-timeline {
             position: relative;
-            padding-left: 2rem;
-        }
-        
-        .award-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
-            border-radius: 2px;
-        }
-        
-        .award-year {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-        
-        .award-year::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--primary-color);
         }
         
         .filter-buttons {
@@ -315,33 +291,22 @@
                 const awardTimeline = document.querySelector('.award-timeline');
                 if (!awardTimeline || !academicData || !academicData.awards) return;
 
-                const awardsByYear = {};
-                academicData.awards.forEach(award => {
-                    if (!awardsByYear[award.year]) {
-                        awardsByYear[award.year] = [];
-                    }
-                    awardsByYear[award.year].push(award);
-                });
-
-                const years = Object.keys(awardsByYear).sort((a, b) => b - a);
+                const sortedAwards = academicData.awards.slice().sort((a, b) => b.year - a.year);
 
                 let html = '';
-                years.forEach(year => {
-                    html += `<div class="award-year">${year}</div>`;
-                    awardsByYear[year].forEach(award => {
-                        html += `
-                            <div class="award-item" data-category="${award.category}">
-                                <div class="award-header">
-                                    <span class="award-category category-${award.category}">${award.categoryLabel}</span>
-                                    <h3 class="award-title">${award.title}</h3>
-                                </div>
-                                <div class="award-footer">
-                                    <p class="award-organization">${award.organization}</p>
-                                    <p class="award-date">${award.date}</p>
-                                </div>
+                sortedAwards.forEach(award => {
+                    html += `
+                        <div class="award-item" data-category="${award.category}">
+                            <span class="award-category category-${award.category}">${award.categoryLabel}</span>
+                            <h3 class="award-title">${award.title}</h3>
+                            <span class="award-title-sep">—</span>
+                            <div class="award-meta">
+                                <span class="award-organization">${award.organization}</span>
+                                <span class="award-meta-sep">·</span>
+                                <span class="award-date">${award.date}</span>
                             </div>
-                        `;
-                    });
+                        </div>
+                    `;
                 });
 
                 awardTimeline.innerHTML = html;
